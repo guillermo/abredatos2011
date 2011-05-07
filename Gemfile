@@ -8,6 +8,7 @@ gem 'capistrano'
 
 gem "workflow"
 gem 'delayed_job'
+gem 'exception_notification', :require => 'exception_notifier'
 
 gem "metainspector", :require => false
 
