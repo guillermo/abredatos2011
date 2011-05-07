@@ -11,6 +11,7 @@ role :db,  "epifanio.cientifico.net", :primary => true # This is where Rails mig
 #role :db,  "your slave db-server here"
 
 set :use_sudo, false
+set :rails_env, "production"
 set :deploy_to, '/var/www/apps/abredatos2011'
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
