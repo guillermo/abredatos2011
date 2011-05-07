@@ -27,7 +27,6 @@ class App < ActiveRecord::Base
       end
       
     end.compact.select do |url|
-      debugger
       URI.parse(url.gsub(" ","%20")).host == uri.host
     end[0..10]
   end
