@@ -32,7 +32,7 @@ class App < ActiveRecord::Base
   
   def regenerate_screenshots!
     screenshots.destroy_all
-    links.each { |link| screenshots.create(:url => link) }
+    links[0..5].each { |link| screenshots.create(:url => link) }
   end
 
   def uri
