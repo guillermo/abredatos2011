@@ -50,3 +50,12 @@ after  "deploy:restart", "delayed_job:start"
 after "deploy:stop",  "delayed_job:stop"
 after "deploy:start", "delayed_job:start"
 
+
+
+desc "tail production log files"
+task :tail_logs, :roles => :app do
+  run "tail -f #{shared_path}/log/production.log " do |channel, stream, data|
+    puts "#{channel[:host]}: #{data}"
+    break if stream == :err
+  end
+end
