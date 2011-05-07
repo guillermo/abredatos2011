@@ -10,13 +10,16 @@
 - Create models
   ✓ App
   - Comments
-  - ScreenShots
+  ✓ ScreenShots
   ✓ Categories
   - Sources
   ✓ User
   
 - Views
   
-- ScreenShotGenerator
+✓ ScreenShotGenerator
 
 - Autorization
+
+
+- Añadir la redirección del www

@@ -3,6 +3,9 @@
   <%= @app.name %>
 </p>
 
+<%= debug @app.screenshots.ready %>
+<%= render @app.screenshots.ready %>
+
 <p>
   <b>Description:</b>
   <%= @app.description %>

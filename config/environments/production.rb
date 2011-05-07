@@ -47,7 +47,6 @@ Abredatos2011::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[abredatos] ",
     :sender_address => %{"abredatos" <abredatos@spain.epifanio.cientifico.net>},

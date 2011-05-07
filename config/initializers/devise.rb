@@ -133,9 +133,14 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not (yet) supported by Devise,
   # you can configure them inside the config.warden block. The example below
   # allows you to setup OAuth, using http://github.com/roman/warden_oauth
-  
+
   #config.omniauth :facebook, "APP_ID", "APP_SECRET"
-  config.omniauth :facebook, "128315547245882", "15c06aed3670a3c634d1c6b898da7687"
+  if Rails.env.production?
+    config.omniauth :facebook, "128315547245882", "15c06aed3670a3c634d1c6b898da7687" 
+  else
+
+    config.omniauth :facebook, "185324291515064", "fe58886416f2e8c9e79cd7a4a503d80f" 
+  end
   config.omniauth :twitter, "oRK6v2OwdT6ySOs9JIamDg", "wryrCLaa9hENHjqH5FYdUO9Yt0LfdrYmFe2brhAyMGI"
   config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
   #
@@ -147,9 +152,9 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
-  
+
   #monkey patch
-  
+
   require 'openid/store/nonce'
   require 'openid/store/interface'
   module OpenID
@@ -162,12 +167,12 @@ Devise.setup do |config|
           result = @cache_client.add(nonce_key, '', expiry(Nonce.skew + 5))
 
           return result #== true (edited 10/25/10)
-  #        return !!(result =~ /^STORED/)
+          #        return !!(result =~ /^STORED/)
         end
       end
     end
   end
-  
+
   class Hash
     def recursive_find_by_key(key)
       # Create a stack of hashes to search through for the needle which

@@ -11,34 +11,28 @@ class App < ActiveRecord::Base
   delegate :title, :meta_description, :to => :metadata
 
   def links
-    host = uri.host
     metadata.links.map do |link|
-      begin
-        next if link =~ /javascript/
-        unless link =~ /\Ahttp(s?)\:\/\//
-          port = uri.port != 80 ? ":#{uri.port}" : ""
-          link = "/#{link}" unless link[0] == 47
-          "#{uri.scheme}://#{uri.host}#{port}#{link}" 
-        else
-          link
-        end
-      rescue => e
-        nil
-      end
+      puts link
+      next if link =~ /javascript|\@|mailto/
+      next unless (link_uri = URI.parse(link.gsub(" ","%20")) rescue nil)
       
-    end.compact.select do |url|
-      URI.parse(url.gsub(" ","%20")).host == uri.host
-    end[0..10]
-  end
-
-  def generate_screenshots
-    links.each do |link|
-      screenshots.create(:url => link)
-    end
+      next unless [uri.host,nil].include?(link_uri.host)
+      link_uri.host ||= uri.host
+      link_uri.scheme ||= uri.scheme
+      link_uri.port ||= uri.port unless uri.port == 80
+      link_uri.path = "/#{link_uri.path}" unless link_uri.path =~ /^\//
+      next if link_uri.host != uri.host
+      link_uri.to_s
+    end.compact.sort{|a,b| a.size <=> b.size }.uniq
   end
 
   def metadata
     @metadata ||= MetaInspector.new(url)
+  end
+  
+  def regenerate_screenshots!
+    screenshots.destroy_all
+    links.each { |link| screenshots.create(:url => link) }
   end
 
   def uri

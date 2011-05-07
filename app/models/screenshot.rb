@@ -1,15 +1,18 @@
 class Screenshot < ActiveRecord::Base
   include Workflow 
   
-  THUMB_SIZES = %w(800x600 400x300 150x150)
+  THUMB_SIZES = %w(800x600 210x196 77x64)
   FORMAT      = "jpg"
   QUALITY     = 75
   
   belongs_to :about, :polymorphic => true
   
   validates_presence_of :url
+
+  after_destroy :clean
   
-  named_scope :ready_for_process, where(:workflow_state => 'new')
+  scope :pending, where(:workflow_state => "new")
+  scope :ready, where(:workflow_state => "ready")
   
   workflow do
     state :new do
@@ -27,14 +30,14 @@ class Screenshot < ActiveRecord::Base
   
   def self.regenerate_all!
     update_all(:workflow_state => "new")
-    find_each do |screenshot|
+    pending.find_each do |screenshot|
       process_screenshot(screenshot)
     end
   end
   
   def self.process_pending
-    ready_for_process.find_each do |screenshot|
-      process_pending(screenshot)
+    find_each do |screenshot|
+      process_screenshot(screenshot)
     end
   end
   
@@ -55,7 +58,6 @@ class Screenshot < ActiveRecord::Base
       fail! and break if halted?
     end
   end
-  
   handle_asynchronously :process!
   
   def path(size = nil)
@@ -124,5 +126,14 @@ protected
     save
   end
 
+  def set_workflow_state
+    self.workflow_state = "new" if new_record?
+  end
 
+
+  def clean
+    THUMB_SIZES.each do |size|
+      File.unlink(local_thumbnail_path_for_size(size))
+    end
+  end
 end
