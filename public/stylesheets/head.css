@@ -1,0 +1,58 @@
+
+/* Header */
+#head {
+  overflow: hidden;
+}
+
+#company_name {
+  color: black;
+  font-size: 20px;
+  font-style: italic;
+  letter-spacing: -1px;
+  text-shadow:  1px 1px 1px #fff;
+	margin: 0px;
+	padding: 0px;
+}
+
+#company_name a {
+  text-decoration: none;
+  color: black;
+}
+
+#company_name em {
+  font-family: 'Yanone Kaffeesatz', arial, serif;
+  font-size: 63px;
+  line-height: 63px;
+  font-weight: bold;
+  letter-spacing: 0;
+  display: block;
+
+}
+
+#login_box {
+	margin: 0px;
+  float: right;
+  background: rgba(0,0,0,0.5);
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-weight: lighter;
+  text-shadow: none;
+}
+
+#login_box a {
+  color: white;
+  text-decoration: none;
+}
+
+#login_box a:hover {
+  text-decoration: underline;
+}

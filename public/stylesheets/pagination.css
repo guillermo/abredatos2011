@@ -1,0 +1,64 @@
+/* @override http://www.arcsem.dev:3000/stylesheets/pagination.css */
+
+.pagination {
+	list-style: none;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 auto;
+	display: block;
+	margin: 54px 70px;
+	text-align: center;
+}
+
+.pagination li {
+	display: inline-block;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	min-width: 25px;
+	padding: 5px 0px 4px;
+
+}
+
+.pagination li.current {
+	background: #39a3e6;
+	color: white;
+	border: 1px solid #0082d5;
+}
+
+.pagination li.current:hover {
+		background: #39a3e6;
+	color: white;
+	border: 1px solid #0082d5;
+}
+#result_list .pagination li a {
+	border-radius: 3px;
+	display: block;
+	margin: 0;
+	text-decoration: none;
+}
+.pagination li.active a {
+	color: #fff;
+}
+
+.pagination li:hover {
+	background: #ec8526;
+	border: 1px solid #d77011;
+}
+
+.pagination li.disabled {
+	display: none;
+}
+
+.pagination li.gap {
+	border: 0;
+}
+
+.pagination li.gap:hover {
+	border: 0;
+	background: none;
+}
+
+.pagination li:hover a {
+	color: #fff;
+}

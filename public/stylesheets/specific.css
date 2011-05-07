@@ -1,0 +1,381 @@
+/* @override
+	http://localhost:3000/stylesheets/specific.css
+	http://www.arcsem.dev:3000/stylesheets/specific.css
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1294758683
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1294898128
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1295040358
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1295060562
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1295264587
+	http://guillermo.arcsem.dev:3000/stylesheets/specific.css?1295266285
+*/
+
+/*Search result*/
+
+#result_list{
+	list-style: none;
+	margin: 36px 70px;
+}
+
+#result_list li {
+	font-size: 24px;
+	line-height: 24px;
+}
+
+#result_list li a {
+	margin: 0 0 24px 0;
+	display: block;
+}
+
+#result_list div a, #result_list p a{
+	display: inline;
+	margin: 0;
+}
+
+#content #result_list li p,
+#content #result_list li div{
+	margin: -24px 0 24px 0 !important;
+	padding: 0 !important;
+	font-size: 18px;
+	line-height: 18px;
+	margin-bottom: 18px;
+	font-weight: 400;
+}
+
+#content #result_list li p.green_link {
+	margin: -24px 0 24px 0;
+}
+
+#result_list li p.green_link,
+#result_list li p.green_link a,
+#result_list li div.green_link,
+#result_list li div.green_link a {
+	font-size: 18px;
+	text-decoration: none;
+	color: green;
+}
+
+#result_list li p b, #result_list li p strong{
+	font-weight:800
+}
+
+
+/* page */
+dl {
+	margin: 32px 0;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+dt, dd {
+	margin-bottom: 16px;
+	vertical-align: top;
+	display: inline-block;
+}
+dt.important, dd.important {
+	font-size: 24px;
+	line-height: 24px;
+}
+dt{
+	width: 150px;
+	margin-right: 10px;
+	font-weight: 800;
+	text-align: right;
+	color: black;
+
+}
+
+dt:after {
+	content: ':';
+}
+
+dd {
+	width: 710px;
+	color:  #555;
+}
+
+dd img{
+	-moz-box-shadow: 2px 2px 5px #aaa;
+	-webkit-box-shadow: 2px 2px 5px #aaa;
+	box-shadow: 2px 2px 5px #aaa;
+}
+
+dd img:hover {
+	-moz-box-shadow: 2px 2px 5px #555;
+	-webkit-box-shadow: 2px 2px 5px #555;
+	box-shadow: 2px 2px 5px #555;
+}
+
+/* Attributes page */
+#attributes_list {
+	list-style: none;
+	display: block;
+	margin-left: 80px;
+}
+
+#attributes_list li {
+	line-height:  24px;
+	font-size: 16px;
+	vertical-align: top;
+	padding-left: 80px;
+	padding-right: 80px;
+	position: relative;
+}
+
+#attributes_list div.field_title b {
+	color: black;
+}
+#attributes_list li span {
+	visibility: hidden;
+	position: absolute;
+	left: 0px;
+	width: 75px;
+	display: block;
+	text-align: right;
+}
+
+#attributes_list li:hover span {
+	visibility: inherit;
+}
+
+#attributes_list li form {
+	display: inline;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+#attributes_list li  span button  {
+	display: inline-block;
+	margin: 0;
+}
+
+#attributes_list li span button {
+	background: 0px 1px url(/images/trash.gif) no-repeat;
+	border: 0;
+	overflow: hidden;
+	text-indent: -1000px;
+	width:10px;
+	margin-right: 5px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+#attributes_list li span a {
+	display: inline-block;
+	margin-right: 5px;
+	color: red;
+	vertical-align: top;
+	font-size: 14px;
+}
+
+#attributes_list li span em {
+	display: inline-block;
+	background: 0px 3px url(/images/move.gif) no-repeat;
+	text-indent:  1000px;
+	width: 12px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+/* Attribute Edit */
+#content p.contextual_menu,
+#content div.attribute_edit {
+	background: #F3F3F3;
+	padding: 8px 10px;
+	line-height: 14px;
+	font-size:14px;
+	line-height: 16px;
+	margin-top: 8px;
+}
+
+#content p.contextual_menu {
+	margin: 8px 80px 64px 160px;
+
+
+}
+
+#content p.contextual_menu a,
+#content div.attribute_edit a {
+	color: red;
+}
+
+
+#content div.attribute_edit label,
+#content div.attribute_edit div div p {
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0 0 5px;
+	font-weight: 600;
+
+}
+
+#content div.attribute_edit p {
+	padding: 0;
+}
+
+#content  div.attribute_edit div.options {
+	overflow: hidden;
+	margin: 12px 0 12px;
+	
+}
+#content div.attribute_edit div.buttons{
+  border-top: 1px solid #DFDFDF ;
+  padding-top: 6px;
+  margin-top: 5px;
+}
+#content  div.attribute_edit div div{
+	display: inline-block;
+}
+#content  div.attribute_edit div div label {
+	font-size: 14px;
+	line-height: 14px;
+	display: inline;
+	margin-right: 10px;
+}
+#content  div.attribute_edit div div label input{
+	display: inline;
+	margin-right: 5px;
+}
+
+#content  div.attribute_edit  input.text {
+	font-size: 16px;
+ 	line-height: 16px;
+ 	padding: 2px;
+ 	margin-top: -1px;
+}
+
+#content div.list_item label.inline {
+  display:inline-block;
+}
+
+#content div.list_item label.inline:after {
+  content: '';
+}
+/* Preview */
+
+.preview {
+	position: relative;
+	margin: 16px 0px;
+}
+
+.preview_mask {
+	content: 'hola';
+	position: absolute;
+	background: rgba(255,255,255,0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+
+}
+
+/* Visualization */
+.result_preview{
+	margin: 16px 160px;
+	padding: 16px 0;
+}
+
+#content .result_preview p {
+	font-size: 18px;
+	line-height: 32px;
+	font-weight: 800;
+	margin: 16px 0 0;
+	padding: 0;
+}
+
+#content .result_preview #result_list {
+	border: 1px solid #CCCCCC;
+	margin: 0;
+	padding: 8px 16px;
+	-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+#content .result_preview p.contextual_menu {
+	text-shadow: none;
+	padding: 4px;
+	line-height: 14px;
+	font-size:14px;
+	line-height: 16px;
+	font-weight: 400;
+}
+
+/* Messages */
+.message {
+	margin: 16px 160px;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	position: relative;
+	padding: 32px 10px 16px;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 800;
+}
+
+.message.info {
+	border: 1px solid #bbdbe0;
+	background: #ecf9ff;
+}
+
+.message.error{
+	border: 1px solid #e9c59b;
+	background: #ffecce;
+	margin: 16px 80px;
+	text-align: left;
+
+}
+
+.message.error ul, .message.error ol {
+  list-style:none;
+}
+
+span.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+		background: url(/images/close.gif) 0 0 no-repeat;
+		text-indent: 64px;
+	width: 16px;
+	height: 16px;
+	cursor: hand;
+	cursor: pointer;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	overflow: hidden;
+}
+
+span.close:hover {
+	-moz-opacity: 1;
+	opacity: 1;
+
+}
+
+#content .message p {
+	margin: 0 0 16px;
+	padding: 0;
+}
+
+
+/* Domains */
+span.input_text {
+  font-size: 24px;
+  line-height: 24px;
+  display:inline-block;
+  vertical-align: bottom;
+  font-family: 'Lucida Grande', Arial;
+  color: #333;
+  padding: 10px 10px 10px 0 ;
+}
+
+#domain_domain {
+  text-align:right;
+}
+
+#content form p.error_description {
+  color: red;
+  font-weight:bold;
+  font-size:16px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}

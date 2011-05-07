@@ -1,3 +1,4 @@
+
 set :application, "abredatos2011"
 set :repository,  "git@github.com:guillermo/abredatos2011.git"
 
@@ -37,4 +38,14 @@ namespace :config do
 end
 
 after 'deploy:update_code', 'config:database'
+
+
+
+require "delayed/recipes"  
+
+before "deploy:restart", "delayed_job:stop"
+after  "deploy:restart", "delayed_job:start"
+
+after "deploy:stop",  "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
 

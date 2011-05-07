@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%= @app.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @app.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @app.price %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @app.author %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @app.type %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @app.category %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @app.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

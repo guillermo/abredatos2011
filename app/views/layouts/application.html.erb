@@ -2,15 +2,44 @@
 <html>
 <head>
   <title>Abredatos2011</title>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:light,lightitalic,regular,regularitalic,600,600italic,bold' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div id="bgcontainer">
 
-<%= yield %>
+    <div id="head">
+      <p id="company_name">
+        <a href="/"><em>Abredatos</em>Abredatos</a>
+      </p>
+      <p id="login_box">
+        <% if current_user %>
+
+        Signed in as <%= current_user.email %>. Not you?
+        <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <%= link_to "Sign in with twitter", user_omniauth_authorize_path(:twitter) %>
+        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_apps) %>
+        <% end %>
+      </p>
+    </div>
+    <div id="content">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      <%= link_to "Nueva aplicación", new_app_path %>
+      <%= link_to "Nueva fuente de datos", new_source_path %>
+    </div>
+  </div>
 
 </body>
 </html>
+

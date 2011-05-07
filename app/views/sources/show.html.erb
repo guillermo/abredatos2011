@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Type:</b>
+  <%= @source.type %>
+</p>
+
+<p>
+  <b>Index:</b>
+  <%= @source.index %>
+</p>
+
+<p>
+  <b>Search:</b>
+  <%= @source.search %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @source.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @source.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @source.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

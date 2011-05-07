@@ -1,0 +1,127 @@
+/* @override 
+	http://localhost:3000/stylesheets/window.css
+	http://guillermo.arcsem.dev:3000/stylesheets/window.css?1294898126
+*/
+
+.windowed {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: white;
+	border: 1px solid #CCCCCC;
+}
+
+#content .window_header {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F3F3F3'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#F3F3F3)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #fff,  #F3F3F3); /* for firefox 3.6+ */
+
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+	margin-bottom: 32px;
+}
+
+.inner_window_header {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F7F7F7', endColorstr='#F3F3F3');  
+	background: -webkit-gradient(linear, left top, left bottom, from(#F7F7F7), to(#F3F3F3)); 
+	background: -moz-linear-gradient(top,  #F7F7F7,  #F3F3F3);  
+
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin:1px;
+	min-height: 64px;
+
+}
+
+#content .window_header ul, #content .window_header ol {
+	list-style: none;
+	overflow: hidden;
+	position: absolute;
+	right: 0px;
+	top: 24px;
+	font-size: 16px;
+	font-weight: bolder;
+	margin-right: 10px;
+}
+#content .window_header li{
+	display: inline-block;
+	border-right: 1px dotted #BBBBBB;
+	padding: 0 5px 0 0;
+	margin: 0 -5px 0 5px;
+	line-height: 16px;
+	font-weight: 400;
+	text-shadow:  1px 1px 1px white;
+
+}
+
+#content .window_header ol li {
+	border:  0px;
+	margin-right: -20px;
+	margin-left: 20px;
+	color: #BBBBBB;
+}
+
+#content .window_header ol li.active {
+	color: #000;
+}
+#content .window_header ol li:after {
+	content: '>';
+	margin-left: 10px;
+	color: #BBBBBB;
+
+}
+
+#content .window_header form {
+	margin: 0px;
+	padding: 0px;
+}
+#content .window_header li a, #content .window_header li button, #content .window_header li input.button {
+	color: black;
+	text-decoration: none;
+}
+
+#content .window_header li a:hover {
+	text-decoration: underline;
+}
+
+#content .window_header li button, #content .window_header li input.button {
+	border: 0px;
+	background: #F5F5F5;
+	font-size: 16px;
+	font-weight: normal;
+	font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+	cursor: hand;
+	cursor: pointer;
+}
+
+#content .window_header li button:hover, #content .window_header li input.button:hover {
+	text-decoration: underline;
+}
+
+.search {
+		width: 129px;
+	height: 15px;
+	padding: 5px 10px 5px 25px;
+	border: 0;
+	font-size: 11px;
+	color: #999;
+	margin: 0;
+	background: url(/images/srch.gif) left center no-repeat;
+}
+
+.search:focus {
+	color: #666;
+	background: url(../images/srch_.gif) left center no-repeat;
+	outline: none;
+
+	}

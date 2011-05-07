@@ -1,1 +1,7 @@
 *.log
+public/system/screenshots public/system/thumbnails
+tmp/cache/*
+tmp/pids/*.pid
+public/system/**
+*.log
+**.log

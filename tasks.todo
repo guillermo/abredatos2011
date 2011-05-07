@@ -1,0 +1,22 @@
+
+- Autentificación
+  ✓ facebook
+  - twitter
+  - google
+
+- Repo
+  - Clean keys
+  
+- Create models
+  ✓ App
+  - Comments
+  - ScreenShots
+  ✓ Categories
+  - Sources
+  ✓ User
+  
+- Views
+  
+- ScreenShotGenerator
+
+- Autorization
