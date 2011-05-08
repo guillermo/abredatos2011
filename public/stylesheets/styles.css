@@ -16,6 +16,10 @@ body.sources {
   background: url('../images/bg02.jpg') #929393 top repeat-x;
 }
 
+a:visited {
+color: #0A5E7C;
+}
+
 #wrapper {
   width: 908px;
   min-height: 100%;
@@ -49,6 +53,7 @@ body.sources {
   border-radius: 8px;
   padding: 10px;
   color: #605F5F;
+  border:1px solid #d8d7d7;
 }
 
 #login a{ color: #605F5F;}
@@ -162,7 +167,7 @@ body.sources {
   font-weight: normal;
   font-family: 'Amaranth', arial, serif; 
 }
-.slide h2 a {color: #0a5e7c;}
+.slide h2 a {color: #0a5e7c;text-shadow: #CECCCC 1px 2px 2px; }
 .slide p, .slide a {
   color: #605F5F;
   text-decoration: none;
@@ -234,6 +239,7 @@ body.sources {
   font-weight: normal;
   font-family: 'Amaranth', arial, serif;
   margin-bottom: 8px;
+	text-shadow: #CECCCC 1px 2px 2px; 
 }
 #left ul.app_list {margin-top:30px;} 
 #left ul.app_list li {
@@ -254,7 +260,6 @@ body.sources {
   color: #676768;
   font-size: 14px;
   margin-bottom: 10px;
-  margin-top: 0;
   font-weight: bold;
 }
 #left ul.app_list li p.name a {color:#77848d;}
@@ -444,6 +449,7 @@ margin-bottom: 20px;
   font-family: 'Amaranth', arial, serif;
   background: url('../images/add.jpg') left center no-repeat;
   padding-left: 30px;
+  text-shadow: #CECCCC 1px 2px 2px; 
 }
 
 .team h2 {
@@ -463,7 +469,16 @@ text-shadow: #CECCCC 1px 2px 2px;
   margin: 10px 0 20px 0;
   font-size: 14px;
 }
-#head .notice {
+
+.team a{
+  color: #0A5E7C;
+  text-decoration: none;
+}
+
+.team a:hover {
+	text-decoration: underline;
+}
+.notice {
   padding: 8px 8px;
   background-color:#80D66B;
   border:1px solid #5A964B;
@@ -476,7 +491,7 @@ text-shadow: #CECCCC 1px 2px 2px;
   font-weight: bold;
 }
 
-#head .alert {
+.alert {
   padding: 8px 8px;
   background-color:#CC3C2C;
   border:1px solid #9B2C20;
@@ -594,6 +609,11 @@ form label:after {
 
 #comment_title {
   border: 1px solid #bbb;
+  font-size: 14px;
+  padding: 4px 0;
+ -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #new_app form input.text, #new_app form input, #head form input.text, #head form input{
