@@ -1,15 +1,24 @@
 class App < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
-
+  
+  has_many :app_sources
+  has_many :sources, :through => :app_sources
+  
+  has_many :comments, :as => :thing
   has_many :screenshots, :as => :about
 
   validate :valid_url
-
+  validate :name, :uniqueness => true
   before_save :set_default_values
-
   delegate :title, :meta_description, :to => :metadata
-
+  delegate :host, :to => :uri
+  def screenshot
+    screenshots.first
+  end
+  
+  delegate :path, :small, :medium, :big, :to => :screenshot, :prefix => true, :allow_nil => true
+  
   def links
     metadata.links.map do |link|
       puts link
@@ -25,6 +34,11 @@ class App < ActiveRecord::Base
       link_uri.to_s
     end.compact.sort{|a,b| a.size <=> b.size }.uniq
   end
+  
+  def short_name
+    return name if name.strip.present?
+    uri.host
+  end
 
   def metadata
     @metadata ||= MetaInspector.new(url)
@@ -34,6 +48,7 @@ class App < ActiveRecord::Base
     screenshots.destroy_all
     links[0..5].each { |link| screenshots.create(:url => link) }
   end
+  handle_asynchronously :regenerate_screenshots!
 
   def uri
     URI.parse(url)

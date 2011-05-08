@@ -141,7 +141,7 @@ Devise.setup do |config|
 
     config.omniauth :facebook, "185324291515064", "fe58886416f2e8c9e79cd7a4a503d80f" 
   end
-  config.omniauth :twitter, "oRK6v2OwdT6ySOs9JIamDg", "wryrCLaa9hENHjqH5FYdUO9Yt0LfdrYmFe2brhAyMGI"
+  config.omniauth :twitter, "Ifwe7bpiikYAnArWCXH7gA", "OBU0a74fFYFwCFcSRyZDPvZKT32oSzk7A3Gwx3T3Zg"
   config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
   #
   # config.warden do |manager|

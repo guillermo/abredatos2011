@@ -1,25 +1,83 @@
-<h1>Listing apps</h1>
+<ul id="head">
+  <li class="slide">
+    <a href="#" title="" class="image"><img src="images/app01.jpg" alt="" height="196" width="210" /></a>
+    <h2><a href="#" title="Mon Quartier">Mon Quartier</a></h2>
+    <p class="go"><a href="#" title="Échale un vistazo">http://monquartier.heroku.com</a></p>
+    <p>Monquartier es un comparador de barrios de (por el momento) Madrid, Barcelona, Valencia y Zaragoza. Nació en Abril de 2010 a las 0:00 en sólo 48 horas. </p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="annotations">
+      <div class="score">
+        <iframe src="http://www.facebook.com/plugins/like.php?locale=es_ES&amp;href=http%3A%2F%2Fwww.matineeymusicaparamaricastontasyautosdechoque.com%2F&amp;send=false&amp;layout=button_count&amp;width=130&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
+      </div>
 
-<% @apps.each do |app| %>
-  <tr>
-    <td><%= app.name %></td>
-    <td><%= app.url %></td>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+      <div class="comments"><span>7</span> comentarios</div>
+    </div>
+  </li>
 
-<br />
+  <li class="slide">
+    <a href="#" title="" class="image"><img src="images/app01.jpg" alt="" height="196" width="210" /></a>
+    <h2><a href="#" title="Mon Quartier">Mon Quartier</a></h2>
+    <p class="go"><a href="#" title="Échale un vistazo">http://monquartier.heroku.com</a></p>
+    <p>Monquartier es un comparador de barrios de (por el momento) Madrid, Barcelona, Valencia y Zaragoza. Nació en Abril de 2010 a las 0:00 en sólo 48 horas. </p>
 
-<%= link_to 'New App', new_app_path %>
+    <div class="annotations">
+      <div class="score">
+        <iframe src="http://www.facebook.com/plugins/like.php?locale=es_ES&amp;href=http%3A%2F%2Fwww.matineeymusicaparamaricastontasyautosdechoque.com%2F&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>
+      </div>
+
+      <div class="comments"><span>7</span> comentarios</div>
+    </div>
+  </li>
+
+  <li class="slide">
+    <a href="#" title="" class="image"><img src="images/app01.jpg" alt="" height="196" width="210" /></a>
+    <h2><a href="#" title="Mon Quartier">Mon Quartier</a></h2>
+    <p class="go"><a href="#" title="Échale un vistazo">http://monquartier.heroku.com</a></p>
+    <p>Monquartier es un comparador de barrios de (por el momento) Madrid, Barcelona, Valencia y Zaragoza. Nació en Abril de 2010 a las 0:00 en sólo 48 horas. </p>
+
+    <div class="annotations">
+      <div class="score">
+        <iframe src="http://www.facebook.com/plugins/like.php?locale=es_ES&amp;href=http%3A%2F%2Fwww.matineeymusicaparamaricastontasyautosdechoque.com%2F&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>
+      </div>
+
+      <div class="comments"><span>7</span> comentarios</div>
+    </div>
+  </li>
+
+</ul> <!-- #slider -->
+
+<div class="slidetabs">
+  <a href="#"></a>
+  <a href="#"></a>
+  <a href="#"></a>
+</div> <!-- the tabs -->
+
+<div id="left">
+  <h2>Listado de Aplicaciones de Open Data</h2>
+  <ul class="app_list">
+    <%= render @apps %>
+  </ul>
+
+</div> <!-- #apps -->
+
+<div id="right">
+  <form action="es/search/" id="main_search" method="get" accept-charset="utf-8">
+    <fieldset>
+      <label>
+        <strong>Buscar</strong>
+        <input name="search" type="text" id="search" value="" />
+        <button type="submit"> <span>Buscar</span> </button>
+      </label>
+    </fieldset>
+  </form>
+
+  <h5>Categorías</h5>
+  <ul>
+    <li><a href="#" title="Educación">Educación</a></li>
+    <li><a href="#" title="Energía">Energía</a></li>
+    <li><a href="#" title="Estadística">Estadística</a></li>
+    <li><a href="#" title="Medio Ambiente">Medio Ambiente</a></li>
+    <li><a href="#" title="Política">Política</a></li>
+  </ul>
+
+</div> <!-- #sidebar -->

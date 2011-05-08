@@ -1,41 +1,52 @@
-<p>
-  <b>Name:</b>
-  <%= @app.name %>
-</p>
+<% content_for :javascript do %>
+ $('#screenshots li a').click(function(event){
+   event.preventDefault();
+   $('#screenshots li .pico').hide();
+   $('#screenshots img.big').attr('src', $(this).attr('href'));
+   $('.pico', $(this).parent('li')).show();
+ });
+<% end %>
+<div id="left">
+  <div id="container">
+    <%= link_to image_tag(@app.screenshot_medium, :height => 196, :width => 210), @app.url, :class => "image" %>
+  <h2 class="app-name"><%= @app.short_name %></h2>
+  <p class="go"><%= link_to @app.url, @app.uri.host %></p>
+  <p><%= @app.description %>
+  <div class="annotations">
+    <div class="score">
+      <%= facebook_like(@app.url) %>
+    </div>
+  </div>
+  </div> <!-- container -->
+      
+      <div id="screenshots">
+        <img class="big" src="<%= @app.screenshot_big %>" alt="" width="610" height="450" />
+        <%= thumbnails_for(@app) %>
+      </div>
+  
+  <h2>Comentarios</h2>
+  <% if @app.comments.any? %>
+    <ul id="comments">
+      <%= render @app.comments %>
+    </ul>
+  <% else %>
+    <p>No hay comentarios :-(</p>
+  <% end %>
+  <h4>Crear nuevo comentario</h4>
+  <% form_for [@app,@comment = @app.comments.new(:user => current_user)] do |f| %>
+  <%= render 'comments/form', :f => f %>
+  <% end %>
+</div> <!-- #main-app -->
 
-<%= debug @app.screenshots.ready %>
-<%= render @app.screenshots.ready %>
 
-<p>
-  <b>Description:</b>
-  <%= @app.description %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @app.price %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @app.author %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @app.type %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @app.category %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @app.user %>
-</p>
-
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %>
+<div id="right">
+  <h5>Información</h5>
+  <dl>
+    <%= dt_dd("Autor",@app.author) %>
+    <%= dt_dd("Url", link_to(@app.host, @app.url)) %>
+    <%= dt_dd("Fecha de alta", @app.created_at.to_s) %>
+    <%= dt_dd("Categoría", @app.category) %>
+    <%= dt_dd("Tipo", @app.app_type) %>
+    <%= dt_dd("Fuentes de datos", app_sources_list(@app)) %>
+  </dl>
+</div> <!-- #sidebar -->

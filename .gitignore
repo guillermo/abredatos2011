@@ -5,3 +5,4 @@ tmp/pids/*.pid
 public/system/**
 *.log
 **.log
+.dropbox
