@@ -8,21 +8,21 @@
 <div id="left">
   <h2>Listado de Aplicaciones de Open Data</h2>
   <ul class="app_list">
-    <%= render @apps %>
+    <%= render @apps.all %>
   </ul>
 
 </div> <!-- #apps -->
 
 <div id="right">
-  <%= form_tag '?', :id => "main_search", :method => :get do %>
+  <% form_for @apps,  :html => {:id => "main_search"} do |f|%>
   <fieldset>
     <label>
       <strong>Buscar</strong>
-      <%= text_field_tag :search %>
-      <button type="submit"> <span>Buscar</span> </button>
-    </label>
-  </fieldset>
-  
+        <%= f.text_field :name_or_description_contains, :id => "search" %>
+        <button type="submit"> <span>Buscar</span> </button>
+      </label>
+    </fieldset>
+    
   <% end %>
 
   <%= render 'categories/categories' %>

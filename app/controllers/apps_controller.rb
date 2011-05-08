@@ -3,7 +3,7 @@ class AppsController < ApplicationController
   # GET /apps.xml
   def index
     @highlighted_apps = App.highlight
-    @apps = App.all
+    @apps = App.search(params[:search])
     @app = App.random
     respond_to do |format|
       format.html # index.html.erb

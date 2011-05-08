@@ -3,7 +3,7 @@ class SourcesController < ApplicationController
   # GET /sources.xml
   def index
     @highlighted_sources = Source.highlight
-    @sources = Source.limit(30).includes(:screenshots)
+    @sources = Source.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb

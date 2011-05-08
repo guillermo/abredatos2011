@@ -78,6 +78,6 @@ module ApplicationHelper
   end
   
   def body_class
-    "class=\"sources\"" if request.path =~ /^\/sources/
+    "class=\"sources\"".html_safe if request.path =~ /^\/sources/
   end
 end

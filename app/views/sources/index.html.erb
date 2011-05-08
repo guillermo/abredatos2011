@@ -5,21 +5,22 @@
 <div id="left">
   <h2>Listado de Fuentes de datos</h2>
   <ul class="app_list">
-    <%= render @sources %>
+    <%= render @sources.all %>
   </ul>
 
 </div> <!-- #apps -->
 
 <div id="right">
-  <form action="es/search/" id="main_search" method="get" accept-charset="utf-8">
-    <fieldset>
-      <label>
-        <strong>Buscar</strong>
-        <input name="search" type="text" id="search" value="" />
+  <% form_for @sources,  :html => {:id => "main_search"} do |f|%>
+  <fieldset>
+    <label>
+      <strong>Buscar</strong>
+        <%= f.text_field :title_or_description_contains, :id => "search" %>
         <button type="submit"> <span>Buscar</span> </button>
       </label>
     </fieldset>
-  </form>
+    
+  <% end %>
   <%= render 'categories/categories' %>
 
 </div> <!-- #sidebar -->

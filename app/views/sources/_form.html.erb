@@ -11,31 +11,28 @@
     </div>
   <% end %>
 
+  
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :index %><br />
-    <%= f.text_field :index %>
-  </div>
-  <div class="field">
-    <%= f.label :search %><br />
-    <%= f.text_field :search %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id, "Categoría" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>    
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear nueva fuente" %>
   </div>
 <% end %>

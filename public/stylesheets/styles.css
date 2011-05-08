@@ -56,9 +56,11 @@ color: #0A5E7C;
   border:1px solid #d8d7d7;
 }
 
-#login a{ color: #605F5F;}
-#login a:hover {text-decoration: none;}
-
+#login a{ color: #0A5E7C; text-decoration: none;}
+#login a:hover {text-decoration: underline;}
+#login li {
+	margin-left: 8px;
+}
 #login .google_apps, #login .twitter, #login .facebook {
 	width: 20px;
 	height:20px;
@@ -259,8 +261,9 @@ color: #0A5E7C;
 #left ul.app_list li p.name {
   color: #676768;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-weight: bold;
+  margin-top: 0;
 }
 #left ul.app_list li p.name a {color:#77848d;}
 #left ul.app_list li p.category {

@@ -12,6 +12,7 @@ gem 'exception_notification', :require => 'exception_notifier'
 gem 'rdiscount'
 gem "metainspector", :require => false
 
+gem 'meta_search'
 gem 'devise', '~> 1.2.1'
 gem 'omniauth', '0.2.0'
 
