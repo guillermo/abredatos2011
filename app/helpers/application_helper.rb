@@ -78,6 +78,6 @@ module ApplicationHelper
   end
   
   def body_class
-    "sources" if request.path =~ /^\/sources/
+    "class=\"sources\"" if request.path =~ /^\/sources/
   end
 end
