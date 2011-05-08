@@ -28,6 +28,7 @@ class Commentable < ActiveRecord::Base
   end
 
   def url
+    return self["url"] if uri.nil?
     u = uri.dup
     u.path = '/' if u.path == "" || u.path.empty?
     u.to_s
@@ -51,8 +52,8 @@ class Commentable < ActiveRecord::Base
   
 
   def metadata
-    return nil unless url.present?
-    @metadata ||= MetaInspector.new(url) 
+    return nil unless self["url"].present?
+    MetaInspector.new(self["url"]) 
   end
   
 
@@ -61,13 +62,17 @@ class Commentable < ActiveRecord::Base
   end
   
   def uri
-    URI.parse(self["url"])
+    return nil unless self["url"].present?
+    URI.parse(self["url"]) 
+  rescue
+    nil
   end
 
   protected
 
 
   def valid_url(*attr_names)
+    return false unless uri
     schemes = %w(http https)
     if !schemes.include?(uri.scheme) || [:scheme, :host].any? { |i| uri.send(i).blank? }
       raise(URI::InvalidURIError)

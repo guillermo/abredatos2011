@@ -1,13 +1,14 @@
 class App < Commentable
 
   validate :name, :uniqueness => true
-  before_save :set_default_values
 
   has_many :app_sources
   has_many :sources, :through => :app_sources
   delegate :title, :meta_description, :to => :metadata
   
-  validates :name, :presence => true
+  before_validation :set_default_values
+  
+  validates :name, :description, :url, :presence => true
   scope :highlight, joins("LEFT JOIN `comments` ON `comments`.`thing_id` = `apps`.`id` AND `comments`.`thing_type` = 'App'").group(:id).select("count('id') as comments_count, `apps`.*").order("comments_count DESC, RAND()").limit(10)
   
   
@@ -27,6 +28,7 @@ class App < Commentable
   protected
 
   def set_default_values
+    return unless url.present?
     self.name = title if name.blank?
     self.description = meta_description if description.blank?
   end
