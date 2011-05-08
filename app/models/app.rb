@@ -8,7 +8,8 @@ class App < Commentable
   delegate :title, :meta_description, :to => :metadata
   
   validates :name, :presence => true
-  scope :highlight, limit(10).order("RAND()")
+  scope :highlight, joins("LEFT JOIN `comments` ON `comments`.`thing_id` = `apps`.`id` AND `comments`.`thing_type` = 'App'").group(:id).select("count('id') as comments_count, `apps`.*").order("comments_count DESC, RAND()").limit(10)
+  
   
   def regenerate_screenshots!
     screenshots.find_each {|s| s.destroy}
