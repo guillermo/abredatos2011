@@ -91,13 +91,12 @@ body.sources {
 }
 #head.slides {
   padding:0;
-  width: 915px;
+  width: 905px;
 }
 
 .slidetabs {
   clear:both;
   margin-left:390px;
-  width: 905px;
   overflow: hidden;
 }
 .slidetabs a {

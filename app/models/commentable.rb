@@ -7,8 +7,8 @@ class Commentable < ActiveRecord::Base
   delegate :name, :to => :category, :prefix => true, :allow_nil => true
   belongs_to :user
   
-  has_many :comments, :as => :thing
-  has_many :screenshots, :as => :about
+  has_many :comments, :as => :thing, :dependent => :destroy
+  has_many :screenshots, :as => :about, :dependent => :destroy
 
   delegate :path, :small, :medium, :big, :to => :screenshot, :prefix => true, :allow_nil => true
 

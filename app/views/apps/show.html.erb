@@ -11,7 +11,7 @@
   <div id="container">
     <%= link_to image_tag(@app.screenshot_medium || '/images/ind-medium.jpg', :height => 196, :width => 210), @app.url, :class => "image" %>
   <h2 class="app-name"><%= @app.short_name %></h2>
-  <p class="go"><%= link_to @app.url, @app.uri.host %></p>
+  <p class="go"><%= link_to @app.host, @app.url %></p>
   <p><%= @app.description %>
   <div class="annotations">
     <div class="score">
