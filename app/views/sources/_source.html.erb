@@ -1,0 +1,5 @@
+<li>
+  <%= link_to image_tag((source.screenshot_small || '/images/ind-small.jpg'), :width => 77, :height => 64, :title => 'asdf'), '#asdf' %>
+  <p class="name"><%= link_to truncate(source.short_title, :length => 18), source %></p>
+  <p class="category"><%= source.category_name %></p>
+</li>

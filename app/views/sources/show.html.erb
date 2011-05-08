@@ -1,35 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Type:</b>
-  <%= @source.type %>
-</p>
+<div id="left">
+  <div id="container">
+    <%= link_to image_tag(@source.screenshot_medium || '', :height => 196, :width => 210), @source.url, :class => "image" %>
+  <h2 class="app-name"><%= @source.short_title %></h2>
+  <p class="go"><%= link_to @source.url, @source.uri.host %></p>
+  <p><%= markdown @source.description %>
+  <div class="annotations">
+    <div class="score">
+    </div>
+  </div>
+  </div> <!-- container -->
+      
+      <% if @source.has_screenshots? %>
+      <div id="screenshots">
+        <img class="big" src="<%= @source.screenshot_big %>" alt="" width="610" height="450" />
+        <%= thumbnails_for(@source) %>
+      </div>
+      <% else %>
+      <p>No disponemos de ningún screenshots por el momento.</p>
+      <% end %>
+        
+  <h2>Comentarios</h2>
+  <% if @source.comments.any? %>
+    <ul id="comments">
+      <%= render @source.comments %>
+    </ul>
+  <% end %>
+  <h4>Crear nuevo comentario</h4>
+  <%= form_for [@source,@comment = @source.comments.new(:user => current_user)] do |f| %>
+  <%= render 'comments/form', :f => f %>
+  <% end %>
+</div> <!-- #main-app -->
 
-<p>
-  <b>Index:</b>
-  <%= @source.index %>
-</p>
 
-<p>
-  <b>Search:</b>
-  <%= @source.search %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @source.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @source.description %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @source.url %>
-</p>
-
-
-<%= link_to 'Edit', edit_source_path(@source) %> |
-<%= link_to 'Back', sources_path %>
+<div id="right">
+  <h5>Información</h5>
+  <dl>
+    <%= dt_dd("Url", link_to(@source.host, @source.url)) %>
+    <%= dt_dd("Fecha de alta", @source.created_at.to_s(:short)) %>
+    <%= dt_dd("Categoría", @source.category_name) %>
+    <%= dt_dd("Tipo", @source.source_type) %>
+  </dl>
+</div> <!-- #sidebar -->

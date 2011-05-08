@@ -9,7 +9,7 @@ gem 'capistrano'
 gem "workflow"
 gem 'delayed_job'
 gem 'exception_notification', :require => 'exception_notifier'
-
+gem 'rdiscount'
 gem "metainspector", :require => false
 
 gem 'devise', '~> 1.2.1'

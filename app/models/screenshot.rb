@@ -29,8 +29,8 @@ class Screenshot < ActiveRecord::Base
   end
   
   def self.regenerate_all!
-    update_all(:workflow_state => "new")
-    pending.find_each do |screenshot|
+    find_each do |screenshot|
+      screenshot.update_attribute(:workflow_state, "new")
       process_screenshot(screenshot)
     end
   end
@@ -51,14 +51,13 @@ class Screenshot < ActiveRecord::Base
   
   
   def process!
-    return false unless ["new",nil].include?(workflow_state)
-    update_attribute(:build_log, '')
+    update_attributes(:build_log => '', :workflow_state => 'new')
     [:fetch_image!, :generate_thumbnails!].each do |state|
       send(state)
       fail! and break if halted?
     end
   end
-  handle_asynchronously :process!
+  handle_asynchronously :process! 
   
   def path(size = nil)
     size ||= THUMB_SIZES.first
@@ -66,22 +65,22 @@ class Screenshot < ActiveRecord::Base
   end
   
   def big
-    path(THUMB_SIZES[0])
+    workflow_state == "ready" ? path(THUMB_SIZES[0]) : '/images/ind-big.jpg'
   end
   
   def medium
-    path(THUMB_SIZES[1])
+    workflow_state == "ready" ? path(THUMB_SIZES[1]) : '/images/ind-medium.jpg'
   end
   
   def small
-    path(THUMB_SIZES[2])
+    workflow_state == "ready" ? path(THUMB_SIZES[2]) : '/images/ind-small.jpg'
   end
   
 
 protected
 
   def fetch_image
-    self.execute "wkhtmltoimage  #{url} #{tempfile_path}" or halt
+    self.execute %'wkhtmltoimage "#{url}" #{tempfile_path} ; test -f #{tempfile_path}'
   end
 
   def generate_thumbnails
@@ -133,7 +132,7 @@ protected
 
   def clean
     THUMB_SIZES.each do |size|
-      File.unlink(local_thumbnail_path_for_size(size))
+      File.unlink(local_thumbnail_path_for_size(size)) rescue nil
     end
   end
 end

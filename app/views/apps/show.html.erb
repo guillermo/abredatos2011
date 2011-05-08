@@ -8,7 +8,7 @@
 <% end %>
 <div id="left">
   <div id="container">
-    <%= link_to image_tag(@app.screenshot_medium, :height => 196, :width => 210), @app.url, :class => "image" %>
+    <%= link_to image_tag(@app.screenshot_medium || '/images/ind-medium.jpg', :height => 196, :width => 210), @app.url, :class => "image" %>
   <h2 class="app-name"><%= @app.short_name %></h2>
   <p class="go"><%= link_to @app.url, @app.uri.host %></p>
   <p><%= @app.description %>
@@ -19,11 +19,15 @@
   </div>
   </div> <!-- container -->
       
+      <% if @app.has_screenshots? %>
       <div id="screenshots">
         <img class="big" src="<%= @app.screenshot_big %>" alt="" width="610" height="450" />
         <%= thumbnails_for(@app) %>
       </div>
-  
+      <% else %>
+      <p>No disponemos de ningún screenshots</p>
+      <% end %>
+        
   <h2>Comentarios</h2>
   <% if @app.comments.any? %>
     <ul id="comments">
@@ -44,7 +48,7 @@
   <dl>
     <%= dt_dd("Autor",@app.author) %>
     <%= dt_dd("Url", link_to(@app.host, @app.url)) %>
-    <%= dt_dd("Fecha de alta", @app.created_at.to_s) %>
+    <%= dt_dd("Fecha de alta", @app.created_at.to_s(:short)) %>
     <%= dt_dd("Categoría", @app.category) %>
     <%= dt_dd("Tipo", @app.app_type) %>
     <%= dt_dd("Fuentes de datos", app_sources_list(@app)) %>

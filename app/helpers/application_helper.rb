@@ -26,11 +26,15 @@ module ApplicationHelper
   def thumbnails_for(app)
     content_tag(:ul) do 
       first = true
-      app.screenshots.map do |screnshot|
+      app.screenshots.ready.map do |screnshot|
         output = content_tag(:li, down_arrow(!first)+link_to(image_tag(screnshot.small),screnshot.big))
         first = false
         output
       end.join.html_safe
     end
+  end
+  
+  def markdown(text)
+    RDiscount.new(text).to_html.html_safe
   end
 end

@@ -1,5 +1,6 @@
 <ul id="head">
   <li class="slide">
+    <% if @app.has_screenshots? %>
     <%= link_to image_tag(@app.screenshot_medium), @app %>
     <h2><%= link_to @app.name, @app %></h2>
     <p class="go"><%= link_to @app.host, @app.url %></p>
@@ -12,38 +13,12 @@
         <%= facebook_like(@app.host) %>
       </div>
       <div class="comments"><span><%= @app.comments.count %></span> comentarios</div>
-    </div>
+    </div><% else %>
+    <p>No hay ninguna app destacada</p>
+    <% end %>
   </li>
 
-  <li class="slide">
-    <a href="#" title="" class="image"><img src="images/app01.jpg" alt="" height="196" width="210" /></a>
-    <h2><a href="#" title="Mon Quartier">Mon Quartier</a></h2>
-    <p class="go"><a href="#" title="Échale un vistazo">http://monquartier.heroku.com</a></p>
-    <p>Monquartier es un comparador de barrios de (por el momento) Madrid, Barcelona, Valencia y Zaragoza. Nació en Abril de 2010 a las 0:00 en sólo 48 horas. </p>
 
-    <div class="annotations">
-      <div class="score">
-        <iframe src="http://www.facebook.com/plugins/like.php?locale=es_ES&amp;href=http%3A%2F%2Fwww.matineeymusicaparamaricastontasyautosdechoque.com%2F&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>
-      </div>
-
-      <div class="comments"><span>7</span> comentarios</div>
-    </div>
-  </li>
-
-  <li class="slide">
-    <a href="#" title="" class="image"><img src="images/app01.jpg" alt="" height="196" width="210" /></a>
-    <h2><a href="#" title="Mon Quartier">Mon Quartier</a></h2>
-    <p class="go"><a href="#" title="Échale un vistazo">http://monquartier.heroku.com</a></p>
-    <p>Monquartier es un comparador de barrios de (por el momento) Madrid, Barcelona, Valencia y Zaragoza. Nació en Abril de 2010 a las 0:00 en sólo 48 horas. </p>
-
-    <div class="annotations">
-      <div class="score">
-        <iframe src="http://www.facebook.com/plugins/like.php?locale=es_ES&amp;href=http%3A%2F%2Fwww.matineeymusicaparamaricastontasyautosdechoque.com%2F&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=recommend&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>
-      </div>
-
-      <div class="comments"><span>7</span> comentarios</div>
-    </div>
-  </li>
 
 </ul> <!-- #slider -->
 

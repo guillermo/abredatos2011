@@ -28,7 +28,7 @@ Obra pública
 Política
 Tráfico y transporte
 Turismo'.split("\n").each do |category_name|
-  Category.find_or_create_by_name(category_name)
+Category.find_or_create_by_name(category_name)
 end
 
 
@@ -47,19 +47,24 @@ csv.shift
 # 10 - Descripcion
 
 csv.each do |aporta_source|
-  Source.find_or_create_by_title(aporta_source[1]) do |source|
-    source.source_type = aporta_source[6]
-    source.title = aporta_source[1]
-    source.url = aporta_source[3]
-    more_info = {
-      "Organismo Responsable" => aporta_source[2],
-      "Organismo Editor" => aporta_source[4],
-      "Clase Info" => aporta_source[5],
-      "Tipo Info" => aporta_source[7],
-      "Tipo Consulta" => aporta_source[8],
-      "Materia" => aporta_source[9]
-    }.map {|k,v|  "#{k}\n#{'='*k.size}\n#{v}\n\n"  }.join("")
-    source.description = aporta_source[10]+more_info
-  end
-  
+  source = Source.find_by_title(aporta_source[1]) || Source.new(aporta_source[1])
+  source.source_type = aporta_source[6]
+  source.title = aporta_source[1]
+  source.url = aporta_source[3]
+  more_info = {
+    "Organismo Responsable" => aporta_source[2],
+    "Organismo Editor" => aporta_source[4],
+    "Clase Info" => aporta_source[5],
+    "Tipo Info" => aporta_source[7],
+    "Tipo Consulta" => aporta_source[8],
+    "Materia" => aporta_source[9],
+    "Extraido" => "Proyecto Aporta: http://www.aporta.es"
+  }
+
+  more_info = more_info.map {|k,v|  "#{k}\n#{'='*k.size}\n#{v}\n\n"  }.join("")
+  source.description = aporta_source[10]+"\n\n\n"+more_info
+
+  source.save
 end
+
+

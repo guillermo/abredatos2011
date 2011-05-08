@@ -2,7 +2,7 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.xml
   def index
-    @sources = Source.all
+    @sources = Source.limit(30).includes(:screenshots)
 
     respond_to do |format|
       format.html # index.html.erb

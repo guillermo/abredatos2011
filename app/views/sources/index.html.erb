@@ -1,33 +1,60 @@
-<h1>Listing sources</h1>
+<ul id="head">
+  <li class="slide">
+    <% if @source.present? %>
+    <%= link_to image_tag(@source.screenshot_medium || '/images/ind-medium.jpg'), @source %>
+    <h2><%= link_to @source.title, @source %></h2>
+    <p class="go"><%= link_to @source.host, @source.url %></p>
+    <p>
+      <%= @source.description %>
+    </p>
 
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Index</th>
-    <th>Search</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="annotations">
+      <div class="score">
+        <%= facebook_like(@source.host) %>
+      </div>
+      <div class="comments"><span><%= @source.comments.count %></span> comentarios</div>
+    </div>
+    <% else %>
+    <p>
+      No existe ninguna fuente
+    </p>
+    <% end %>
+  </li>
 
-<% @sources.each do |source| %>
-  <tr>
-    <td><%= source.type %></td>
-    <td><%= source.index %></td>
-    <td><%= source.search %></td>
-    <td><%= source.title %></td>
-    <td><%= source.description %></td>
-    <td><%= source.url %></td>
-    <td><%= link_to 'Show', source %></td>
-    <td><%= link_to 'Edit', edit_source_path(source) %></td>
-    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+</ul> <!-- #slider -->
 
-<%= link_to 'New Source', new_source_path %>
+<div class="slidetabs">
+  <a href="#"></a>
+  <a href="#"></a>
+  <a href="#"></a>
+</div> <!-- the tabs -->
+
+<div id="left">
+  <h2>Listado de Fuentes de datos</h2>
+  Hay un total de <%= @sources.count %>
+  <ul class="app_list">
+    <%= render @sources %>
+  </ul>
+
+</div> <!-- #apps -->
+
+<div id="right">
+  <form action="es/search/" id="main_search" method="get" accept-charset="utf-8">
+    <fieldset>
+      <label>
+        <strong>Buscar</strong>
+        <input name="search" type="text" id="search" value="" />
+        <button type="submit"> <span>Buscar</span> </button>
+      </label>
+    </fieldset>
+  </form>
+
+  <h5>Categorías</h5>
+  <ul>
+    <% Category.all.each do |category| %>
+    <%= content_tag(:li, (link_to category.name, :query => {:category_id => category.id})) %>
+    <% end %>
+  </ul>
+
+</div> <!-- #sidebar -->

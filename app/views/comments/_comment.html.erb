@@ -1,6 +1,6 @@
 <li>
     <h3><%= comment.title %></h3>
     <p>por <%= comment.author %> - <span><%= time_ago_in_words(comment.created_at) %></span></p>
-    <%= comment.body %>
+    <%= comment.title %>
     <%= simple_format(comment.body) %>
 </li>

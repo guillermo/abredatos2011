@@ -14,12 +14,10 @@ body {
 
 #wrapper {
 	width: 908px;
-	
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -147px; /* the bottom margin is the negative value of the footer's height */
-	
 	
 }
 
@@ -27,9 +25,7 @@ body {
 	width: 790px;
 	background-color: #fff;
 	/*height:227px;*/
-	height: 241px;
-	overflow: hidden;
-	margin: 0 0 13px;
+	margin: 20px 0 30px;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border-radius: 15px;
@@ -38,6 +34,10 @@ body {
 	position:relative;
 }
 
+#head.slides {
+	height: 241px;
+	overflow: hidden;
+}
 
 .slide {
 	padding-left: 241px;
@@ -167,9 +167,9 @@ body {
 #left p.go {font-size: 12px;}
 #left p.go a:hover {text-decoration: underline;}
 #left #container {
-	height:220px;
 	border-bottom: 1px solid #C9C7C7;
 	margin-bottom: 15px;
+	overflow: hidden;
 }
 #left #container  a.image img {border: 1px solid #C9C7C7;}
 #left #comments {
@@ -315,21 +315,8 @@ body {
 }
 
 /* === NEW APP ===*/
-#new-app {
-	width: 790px;
-	background-color: #fff;
-	/*height:227px;*/
-	margin: 0 0 13px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	border:1px solid #d8d7d7;
-	padding: 29px 59px 30px 59px;
-	position:relative;
-	margin-bottom: 35px;
-}
 
-#new-app h2 {
+#head h2.new-app {
 	margin-bottom: 10px;
 	font-size: 25px;
 	color: #599fb8;
@@ -339,19 +326,20 @@ body {
 	padding-left: 30px;
 }
 
-#new-app .notice {
+#head .notice {
 	padding: 8px 8px;
 	background-color:#80D66B;
 	border:1px solid #5A964B;
-	color: #222;
+	color: #444;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	margin-bottom: 10px;
 	text-align: center;
+	font-weight: bold;
 }
 
-#new-app .alert {
+#head .alert {
 	padding: 8px 8px;
 	background-color:#CC3C2C;
 	border:1px solid #9B2C20;
@@ -361,9 +349,25 @@ body {
 	border-radius: 8px;
 	margin-bottom: 10px;
 	text-align: center;
-	
+	font-weight: bold;
 }
 
+#head .actions .button {
+	background-color: #77848D;
+	padding: 7px 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	width: 54%;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+#new_app .actions button:hover {cursor: pointer; cursor: hand;}
+
+#head .field label {margin-bottom: 7px;}
 /* ======= FOOTER ======== */
 #footer {
 	background: url('../images/down.png') top repeat-x #2e3037;
@@ -480,16 +484,3 @@ body {
 	outline: none;
 	}
 
-#new_app .actions .button {
-	background-color: #77848D;
-	padding: 7px 10px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	color: #fff;
-	border: none;
-	font-size: 12px;
-	width: 54%;
-	font-weight: bold;
-}
-#new_app .actions button:hover {cursor: pointer; cursor: hand;}

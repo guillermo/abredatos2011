@@ -1,7 +1,10 @@
 Abredatos2011::Application.routes.draw do
   
 
-  resources :sources
+  resources :sources do
+    resources :comments
+  end
+  
   resources :screenshots
 
   resources :categories
