@@ -71,9 +71,9 @@ color: #0A5E7C;
   border:1px solid #d8d7d7;
 }
 
-#login a{ color: #0A5E7C; text-decoration: none;}
-#login a:hover {text-decoration: underline;}
-#login li {
+#login a, #menu a { color: #0A5E7C; text-decoration: none;}
+#login a:hover, #menu a:hover {text-decoration: underline;}
+#login li, #menu li {
 	margin-left: 8px;
 }
 #login .google_apps, #login .twitter, #login .facebook {
@@ -95,10 +95,26 @@ color: #0A5E7C;
 	background: url('../images/fbk.png') no-repeat;
 }
 
-#login li {
+#login li, #menu li {
   display: inline;
   vertical-align: middle;
 }
+
+#menu {
+  position: absolute;
+  top: 51px;
+  right: 0;
+  background-color: #fff;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 10px;
+  color: #605F5F;
+  border:1px solid #d8d7d7;
+  
+}
+
+
 #head {
   width: 790px;
   background-color: #fff;
@@ -118,8 +134,9 @@ color: #0A5E7C;
 
 .slidetabs {
   clear:both;
-  margin-left:390px;
   overflow: hidden;
+  margin: 0px 0px 15px 390px;
+  padding-top: 15px;
 }
 .slidetabs a {
   width:8px;
