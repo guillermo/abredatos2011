@@ -18,9 +18,11 @@
   <div id="wrapper">
     <h1 id="logo"><a href="/" title="Inicio">Ábrete de datos</a></h1>
     <ul id="login">
+      <li><%= link_to_unless_current "Listado de aplicaciones", apps_path %></li>
+      <li style="margin-right: 100px;"><%= link_to_unless_current "Listado de fuentes", sources_path %></li>
       <% if current_user %>
       <li>Signed in as <%= current_user.email %>. Not you?</li>
-      <%= link_to "Sign out", destroy_user_session_path %>
+      <li><%= link_to "Sign out", destroy_user_session_path %></li>
       <% else %>
       <li>Haz login</li>
       <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook" %></li>
@@ -42,12 +44,11 @@
 
   <div id="footer">
     <div class="center">
-      <h4>Todas estas aplicaciones utilizan fuentes de datos públicas. Accede al <%= link_to "directory de fuentes", sources_path %>.</h4>
+      <h4>Todas estas aplicaciones utilizan fuentes de datos públicas. Accede al <%= link_to "directorio de fuentes", sources_path %>.</h4>
       <ul>
         <li><a href="#" title="">Quienes somos</a></li>
         <li><%= link_to "Nueva aplicación", new_app_path %></li>
         <li><%= link_to "Nueva fuente de datos", new_source_path %></li>
-        <li><a href="#" title="">Api</a></li>
         <li><a href="http://abredatos.es" title="">Abredatos</a></li>
       </ul>
     </div> <!-- .center -->

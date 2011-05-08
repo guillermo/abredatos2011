@@ -1,4 +1,20 @@
 
+#wrapper #head .field_with_errors input, #wrapper #head .field_with_errors textarea, #wrapper #head .field_with_errors select  {
+  border: 2px solid red;
+}
+
+#error_explanation {
+  margin: 20px 50px;
+}
+
+#error_explanation ul {
+  list-style: square;
+}
+
+#error_explanation li {
+  margin-bottom: 5px;
+}
+
 
 
 html, body {
@@ -27,7 +43,6 @@ color: #0A5E7C;
   height: 100%;
   margin: 0 auto -147px; /* the bottom margin is the negative value of the footer's height */
   position: relative;
-
 }
 
 #logo {

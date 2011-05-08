@@ -1,7 +1,6 @@
 <%= form_for(@app) do |f| %>
   <% if @app.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
 
       <ul>
       <% @app.errors.full_messages.each do |msg| %>
@@ -36,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :app_type, "Tipo de aplicación" %>
-    <%= f.select :app_type, ['Applicación Móvil', 'Web Movil', 'Web', 'Api'] %>
+    <%= f.select :app_type, ['','Applicación Móvil', 'Web Movil', 'Web', 'Api'] %>
   </div>
   <div class="actions">
     <button type="submit" class="button"><em>Crear</em></button>

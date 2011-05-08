@@ -7,6 +7,7 @@ class App < Commentable
   has_many :sources, :through => :app_sources
   delegate :title, :meta_description, :to => :metadata
   
+  validates :name, :presence => true
   scope :highlight, limit(10).order("RAND()")
   
   def regenerate_screenshots!

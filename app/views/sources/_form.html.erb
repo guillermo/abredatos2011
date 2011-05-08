@@ -1,8 +1,6 @@
 <%= form_for(@source) do |f| %>
   <% if @source.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>
-
       <ul>
       <% @source.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,17 +11,17 @@
 
   
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :title, "Título" %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :url %>
+    <%= f.label :url, "Url" %>
     <%= f.text_field :url %>
   </div>
   
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description, "Descripción" %>
     <%= f.text_area :description %>
   </div>
 
@@ -31,6 +29,7 @@
     <%= f.label :category_id, "Categoría" %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>    
   </div>
+
 
   <div class="actions">
     <%= f.submit "Crear nueva fuente" %>
