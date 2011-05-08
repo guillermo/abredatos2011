@@ -3,7 +3,7 @@ class AppsController < ApplicationController
   # GET /apps.xml
   def index
     @apps = App.all
-
+    @app = App.random
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @apps }
@@ -25,7 +25,6 @@ class AppsController < ApplicationController
   # GET /apps/new.xml
   def new
     @app = App.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @app }

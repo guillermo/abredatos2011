@@ -5,9 +5,9 @@ class CreateSources < ActiveRecord::Migration
       t.string :index
       t.string :search
       t.string :title
+      t.references :user
       t.text :description
       t.string :url
-
       t.timestamps
     end
   end

@@ -13,11 +13,15 @@ class App < ActiveRecord::Base
   before_save :set_default_values
   delegate :title, :meta_description, :to => :metadata
   delegate :host, :to => :uri
+  delegate :path, :small, :medium, :big, :to => :screenshot, :prefix => true, :allow_nil => true
+  
+  def self.random
+    order('rand()').where(:screenshots => {:workflow_state => :ready}).joins(:screenshots).first
+  end
+  
   def screenshot
     screenshots.first
   end
-  
-  delegate :path, :small, :medium, :big, :to => :screenshot, :prefix => true, :allow_nil => true
   
   def links
     metadata.links.map do |link|
@@ -45,7 +49,7 @@ class App < ActiveRecord::Base
   end
   
   def regenerate_screenshots!
-    screenshots.destroy_all
+    screenshots.find_each {|s| s.destroy}
     links[0..5].each { |link| screenshots.create(:url => link) }
   end
   handle_asynchronously :regenerate_screenshots!
