@@ -29,26 +29,15 @@ class Screenshot < ActiveRecord::Base
   end
   
   def self.regenerate_all!
-    find_each do |screenshot|
-      screenshot.update_attribute(:workflow_state, "new")
-      process_screenshot(screenshot)
-    end
+    update_all(:workflow_state,"new")
+    process_pending
   end
   
   def self.process_pending
     find_each do |screenshot|
-      process_screenshot(screenshot)
+      screenshot.process!
     end
   end
-  
-  def self.process_screenshot(screenshot)
-    screenshot.process!
-  rescue => e
-    Rails.logger.error("Error regenereting thumbnail for #{screenshot.inspect}\n#{e.inspect}\n#{screenshot.build_log}")
-  rescue Workflow::NoTransitionAllowed => e
-    Rails.logger.error("Error regenereting thumbnail for #{screenshot.inspect}\n#{e.inspect}\n#{screenshot.build_log}")
-  end
-  
   
   def process!
     return false unless ["new",nil].include?(workflow_state)

@@ -1,0 +1,7 @@
+
+<h5>Categorías</h5>
+<ul>
+  <% Category.all.each do |category| %>
+  <%= content_tag(:li, (link_to category.name, :query => {:category_id => category.id})) %>
+  <% end %>
+</ul>

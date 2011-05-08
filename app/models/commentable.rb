@@ -10,9 +10,15 @@ class Commentable < ActiveRecord::Base
   has_many :comments, :as => :thing
   has_many :screenshots, :as => :about
 
-  delegate :host, :to => :uri
   delegate :path, :small, :medium, :big, :to => :screenshot, :prefix => true, :allow_nil => true
-  
+
+
+  def host
+    uri.host
+  rescue
+    return url
+  end
+
   def self.random
     order('rand()').where(:screenshots => {:workflow_state => :ready}).joins(:screenshots).first
   end

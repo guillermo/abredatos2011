@@ -1,0 +1,10 @@
+<li class="slide">
+  <%= link_to image_tag(highlighted_app.screenshot_medium || '/images/ind-medium.jpg', :width => 210, :height => 196), highlighted_app, :class => "image" %>
+  <h2><%= link_to highlighted_app.short_name, highlighted_app %></h2>
+  <p class="go"><%= link_to highlighted_app.host, highlighted_app.url %></p>
+  <p class="description"><%= truncate(highlighted_app.description, :length => 300) %></p>
+  <div class="annotations">
+    <div class="comments"><span><%= highlighted_app.comments.count %></span> comentarios</div>
+    <div class="score"><%= facebook_like(highlighted_app.uri.host) %></div>
+  </div>
+</li>

@@ -3,7 +3,7 @@
   <div id="container">
     <%= link_to image_tag(@source.screenshot_medium || '', :height => 196, :width => 210), @source.url, :class => "image" %>
   <h2 class="app-name"><%= @source.short_title %></h2>
-  <p class="go"><%= link_to @source.url, @source.uri.host %></p>
+  <p class="go"><%= link_to @source.uri.host, @source.url %></p>
   <p><%= markdown @source.description %>
   <div class="annotations">
     <div class="score">

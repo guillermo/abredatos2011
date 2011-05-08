@@ -1,0 +1,9 @@
+<li class="slide">
+  <%= link_to image_tag(highlighted_source.screenshot_medium || '/images/ind-medium.jpg', :width => 210, :height => 196), highlighted_source, :class => "image" %>
+  <h2><%= link_to highlighted_source.short_title, highlighted_source %></h2>
+  <p class="go"><%= link_to highlighted_source.host, highlighted_source.url %></p>
+  <p class="description"><%= truncate(highlighted_source.description, :length => 300) %></p>
+  <div class="annotations">
+    <div class="comments"><span><%= highlighted_source.comments.count %></span> comentarios</div>
+  </div>
+</li>

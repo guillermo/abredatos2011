@@ -6,6 +6,7 @@
    $('.pico', $(this).parent('li')).show();
  });
 <% end %>
+
 <div id="left">
   <div id="container">
     <%= link_to image_tag(@app.screenshot_medium || '/images/ind-medium.jpg', :height => 196, :width => 210), @app.url, :class => "image" %>
@@ -49,7 +50,7 @@
     <%= dt_dd("Autor",@app.author) %>
     <%= dt_dd("Url", link_to(@app.host, @app.url)) %>
     <%= dt_dd("Fecha de alta", @app.created_at.to_s(:short)) %>
-    <%= dt_dd("Categoría", @app.category) %>
+    <%= dt_dd("Categoría", @app.category_name) %>
     <%= dt_dd("Tipo", @app.app_type) %>
     <%= dt_dd("Fuentes de datos", app_sources_list(@app)) %>
   </dl>

@@ -1,32 +1,9 @@
-<ul id="head">
-  <li class="slide">
-    <% if @app.has_screenshots? %>
-    <%= link_to image_tag(@app.screenshot_medium), @app %>
-    <h2><%= link_to @app.name, @app %></h2>
-    <p class="go"><%= link_to @app.host, @app.url %></p>
-    <p>
-      <%= @app.description %>
-    </p>
-
-    <div class="annotations">
-      <div class="score">
-        <%= facebook_like(@app.host) %>
-      </div>
-      <div class="comments"><span><%= @app.comments.count %></span> comentarios</div>
-    </div><% else %>
-    <p>No hay ninguna app destacada</p>
-    <% end %>
-  </li>
+<div id="head" class="slides">
+  <%= slides_for(@highlighted_apps.all, 'highlighted_app' ) %>
+</div> <!-- #slider -->
 
 
 
-</ul> <!-- #slider -->
-
-<div class="slidetabs">
-  <a href="#"></a>
-  <a href="#"></a>
-  <a href="#"></a>
-</div> <!-- the tabs -->
 
 <div id="left">
   <h2>Listado de Aplicaciones de Open Data</h2>
@@ -37,15 +14,16 @@
 </div> <!-- #apps -->
 
 <div id="right">
-  <form action="es/search/" id="main_search" method="get" accept-charset="utf-8">
-    <fieldset>
-      <label>
-        <strong>Buscar</strong>
-        <input name="search" type="text" id="search" value="" />
-        <button type="submit"> <span>Buscar</span> </button>
-      </label>
-    </fieldset>
-  </form>
+  <%= form_tag '?', :id => "main_search", :method => :get do %>
+  <fieldset>
+    <label>
+      <strong>Buscar</strong>
+      <%= text_field_tag :search %>
+      <button type="submit"> <span>Buscar</span> </button>
+    </label>
+  </fieldset>
+  
+  <% end %>
 
   <h5>Categorías</h5>
   <ul>
@@ -55,5 +33,8 @@
     <li><a href="#" title="Medio Ambiente">Medio Ambiente</a></li>
     <li><a href="#" title="Política">Política</a></li>
   </ul>
+
+  <%= render 'categories/categories' %>
+
 
 </div> <!-- #sidebar -->

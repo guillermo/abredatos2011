@@ -1,38 +1,9 @@
-<ul id="head">
-  <li class="slide">
-    <% if @source.present? %>
-    <%= link_to image_tag(@source.screenshot_medium || '/images/ind-medium.jpg'), @source %>
-    <h2><%= link_to @source.title, @source %></h2>
-    <p class="go"><%= link_to @source.host, @source.url %></p>
-    <p>
-      <%= @source.description %>
-    </p>
-
-    <div class="annotations">
-      <div class="score">
-        <%= facebook_like(@source.host) %>
-      </div>
-      <div class="comments"><span><%= @source.comments.count %></span> comentarios</div>
-    </div>
-    <% else %>
-    <p>
-      No existe ninguna fuente
-    </p>
-    <% end %>
-  </li>
-
-
-</ul> <!-- #slider -->
-
-<div class="slidetabs">
-  <a href="#"></a>
-  <a href="#"></a>
-  <a href="#"></a>
-</div> <!-- the tabs -->
+<div id="head" class="slides">
+  <%= slides_for(@highlighted_sources.all, 'highlighted_source' ) %>
+</div> <!-- #slider -->
 
 <div id="left">
   <h2>Listado de Fuentes de datos</h2>
-  Hay un total de <%= @sources.count %>
   <ul class="app_list">
     <%= render @sources %>
   </ul>
@@ -49,12 +20,6 @@
       </label>
     </fieldset>
   </form>
-
-  <h5>Categorías</h5>
-  <ul>
-    <% Category.all.each do |category| %>
-    <%= content_tag(:li, (link_to category.name, :query => {:category_id => category.id})) %>
-    <% end %>
-  </ul>
+  <%= render 'categories/categories' %>
 
 </div> <!-- #sidebar -->

@@ -2,6 +2,7 @@ class AppsController < ApplicationController
   # GET /apps
   # GET /apps.xml
   def index
+    @highlighted_apps = App.highlight
     @apps = App.all
     @app = App.random
     respond_to do |format|

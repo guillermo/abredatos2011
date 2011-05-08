@@ -12,29 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %>
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :category_id, "Categoría" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>    
+  </div>
+  
+  <div class="field">
+    <%= f.label :description, "Descripción" %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br />
+    <%= f.label :author, "Autor" %>
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :app_type %><br />
-    <%= f.text_field :app_type %>
+    <%= f.label :app_type, "Tipo de aplicación" %>
+    <%= f.select :app_type, ['Applicación Móvil', 'Web Movil', 'Web de escritorio', 'Web'] %>
   </div>
   <div class="actions">
     <button type="submit" class="button"><em>Crear</em></button>

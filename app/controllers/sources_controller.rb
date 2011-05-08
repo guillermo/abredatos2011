@@ -2,6 +2,7 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.xml
   def index
+    @highlighted_sources = Source.highlight
     @sources = Source.limit(30).includes(:screenshots)
 
     respond_to do |format|

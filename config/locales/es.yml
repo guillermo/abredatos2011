@@ -182,3 +182,8 @@
 
       full_messages:
         format: "%{attribute} %{message}"
+      models:
+        app:
+          attributes:
+            url:
+              invalid: "no es válida"

@@ -17,7 +17,7 @@
   <!--[if IE 6]>
   <script src="js/DD_belatedPNG.js"></script>
   <script>
-  DD_belatedPNG.fix('#logo a, .facebook, .twitter, .google-apps');
+  DD_belatedPNG.fix('#logo a');
   </script>
   <![endif]-->
 </head>
@@ -31,43 +31,16 @@
     </div>
 
     
-    <div id="head">
-      <p class="notice">Se ha creado la nueva aplicación correctamente.</p>
-      <p class="alert">No se ha podido crear la aplicación porque hay errores.</p>
-    <h2 class="new-app">Crear nueva aplicación</h2>
+    <div id="head" class="team">
+      <h2>Ábrete de datos</h2>
+      <p>Ante la dificultad de encontrar fuentes de datos abiertas, aquí se plantea un índice, en el que los usuarios podrán enviar sus aplicaciones, votar, comentar o buscar librerías que utilizan datos abiertos.</p>
 
-<form accept-charset="UTF-8" action="/apps" class="new_app" id="new_app" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ck7cWQdutgN5mZKAcZssAX5/mhbwYxj65vSzVD3ynlI=" /></div>
+      <p>Por otro lado, y para que no queden en el olvido, pretende ser un punto central donde buscar las aplicaciones que utilizan esos datos.</p>
+      <h2>Los creadores</h2>
+      <p><a href="http://twitter.com/guillermooo">Guillermo Álvarez</a> y <a href="http://twitter.com/supersonik86">Esther Amor</a>, desarrollador Rails él y maquetadora web ella, deciden participar por segundo año en el Desafío Abredatos</p>
 
-  <div class="field">
-    <label for="app_url">Url</label>
-    <input id="app_url" name="app[url]" size="30" type="text" />
-  </div>
 
-  <div class="field">
-    <label for="app_name">Nombre de la aplicación</label>
-    <input id="app_name" name="app[name]" size="30" type="text" />
-  </div>
-  <div class="field">
-    <label for="app_description">Descripción</label>
-    <textarea cols="40" id="app_description" name="app[description]" rows="20"></textarea>
-  </div>
-  <div class="field">
-    <label for="app_price">Precio</label>
-    <input id="app_price" name="app[price]" size="30" type="text" />
-  </div>
-  <div class="field">
-    <label for="app_author">Autor</label>
-    <input id="app_author" name="app[author]" size="30" type="text" />
-  </div>
-  <div class="field">
-    <label for="app_app_type">Tipo de App</label>
-    <input id="app_app_type" name="app[app_type]" size="30" type="text" />
-  </div>
-  <div class="actions">
-    <button type="submit" class="button">Crear</button>
-  </div>
-</form>
-</div> <!-- head -->
+  </div> <!-- head -->
 
 
     <div class="push"></div>
