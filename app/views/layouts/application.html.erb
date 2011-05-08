@@ -10,6 +10,8 @@
   <%= yield :style %>
   </style>
   <meta name="language" content="es" />
+  <meta name="Description" content="Listado de aplicaciones que usan datos públicos, así como fuentes de datos públicos. Te permite comentar y opinar de cada uno.">
+  
   <script type="text/javascript" charset="utf-8" src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
 </head>
@@ -24,7 +26,6 @@
       <% else %>
       <li>Haz login</li>
       <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook" %></li>
-      <li><%= link_to "Sign in with twitter", user_omniauth_authorize_path(:twitter), :class => "twitter" %></li>
       <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_apps), :class => "google_apps" %></li>
       <% end %>
     </ul>
