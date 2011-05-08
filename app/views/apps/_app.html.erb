@@ -1,5 +1,5 @@
 <li>
   <%= link_to image_tag((app.screenshot_small || '/images/ind-small.jpg'), :width => 77, :height => 64, :title => app.short_name), app %>
-  <p class="name"><%= link_to truncate(app.short_name, :length => 100), app %></p>
+  <p class="name"><%= link_to truncate(app.short_name, :length => 50), app %></p>
   <p class="category"><%= app.category_name %></p>
 </li>

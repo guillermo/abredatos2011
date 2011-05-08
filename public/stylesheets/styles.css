@@ -301,16 +301,19 @@ color: #0A5E7C;
 #left ul.app_list li p.category {
   color: #898a8c;
   font-size: 12px;
+  margin:0;
 }
 #left .image {
   float: left;
   margin: 0 25px 15px ;
 }
-#left p, #left a {
-  color: #605F5F;
-  text-decoration: none;
+#left a {
+   color: #0a5e7c;
+   text-decoration: none;
 }
 #left p {
+  color: #605F5F;
+  text-decoration: none;
   line-height: 18px;
   margin: 10px 0;
   font-size: 14px;

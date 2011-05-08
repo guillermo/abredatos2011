@@ -26,9 +26,15 @@ class Commentable < ActiveRecord::Base
   def screenshot
     screenshots.ready.first || screenshots.first
   end
+
+  def url
+    u = uri.dup
+    u.path = '/' if u.path == "" || u.path.empty?
+    u.to_s
+  end
   
   def links
-    metadata.links.map do |link|
+    all_links = [url] + metadata.links.map do |link|
       next if link =~ /javascript|\@|mailto/
       next unless (link_uri = URI.parse(link.gsub(" ","%20")) rescue nil)
       
@@ -39,7 +45,8 @@ class Commentable < ActiveRecord::Base
       link_uri.path = "/#{link_uri.path}" unless link_uri.path =~ /^\//
       next if link_uri.host != uri.host
       link_uri.to_s
-    end.compact.sort{|a,b| a.size <=> b.size }.uniq
+    end
+    all_links.compact.sort{|a,b| a.size <=> b.size }.uniq
   end
   
 
@@ -54,7 +61,7 @@ class Commentable < ActiveRecord::Base
   end
   
   def uri
-    URI.parse(url)
+    URI.parse(self["url"])
   end
 
   protected
