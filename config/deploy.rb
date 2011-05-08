@@ -55,7 +55,7 @@ after "deploy:start", "delayed_job:start"
 
 desc "tail production log files"
 task :tail_logs, :roles => :app do
-  run "tail -f #{shared_path}/log/production.log " do |channel, stream, data|
+  run "tail -f #{shared_path}/log/production.log #{shared_path}/log/delayed_job.log" do |channel, stream, data|
     puts "#{channel[:host]}: #{data}"
     break if stream == :err
   end

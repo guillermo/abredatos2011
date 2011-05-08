@@ -51,13 +51,14 @@ class Screenshot < ActiveRecord::Base
   
   
   def process!
-    update_attributes(:build_log => '', :workflow_state => 'new')
+    return false unless ["new",nil].include?(workflow_state)
+    update_attribute(:build_log, '')
     [:fetch_image!, :generate_thumbnails!].each do |state|
       send(state)
       fail! and break if halted?
     end
   end
-  handle_asynchronously :process! 
+  handle_asynchronously :process!
   
   def path(size = nil)
     size ||= THUMB_SIZES.first
